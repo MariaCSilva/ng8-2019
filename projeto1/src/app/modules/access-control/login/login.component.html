@@ -1,0 +1,26 @@
+<div class="container">
+    <main>
+        <header>
+            <img src="assets/img/marca-login.svg" alt="Logo">
+            <h1>Seja bem-vindo</h1>
+        </header>
+        <div class="messages" *ngIf="!isValid()">
+            {{message}}
+        </div>
+        <div class="form-container">
+            <form (ngSubmit)="send()">
+                <div class="form-group">
+                    <label for="email"></label>
+                    <!-- <span class="custom-icon user"></span> -->
+                    <input type="email" placeholder="Usuário"  class="icon-user" [(ngModel)]="data.email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <!-- <span class="custom-icon password"></span> -->
+                    <input type="password" placeholder="Senha" class="icon-password" [(ngModel)]="data.password" name="password">
+                </div>
+                <button type="submit" [disabled]="!isValid()" [ngClass]="{'disabled':!isValid()}">{{action}}</button>
+            </form>
+        </div>
+    </main>
+</div>
